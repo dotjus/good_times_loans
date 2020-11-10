@@ -1,2 +1,14 @@
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
+<h1>All Listings</h1>
+
+
+<table>
+    <th>Item</th>
+    <th>Price</th>
+
+    <% @listings.each do |key, val| %>
+    <tr>
+        <td> <%= key %> </td>
+        <td> $<%= "%.2f" % val %> </td>
+    </tr>
+    <% end %>
+</table>

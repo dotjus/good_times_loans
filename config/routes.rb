@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   root to: 'searches#new'
 
   get "/restricted", to: "listings#hidden", as: "restricted"
+  get "/listings", to: "listings#index", as: "listings"
+
 
 end
