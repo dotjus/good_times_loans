@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color:#181818;" >
   <head>
-    <title>GoodTimesLoans</title>
+    <title >GoodTimesLoans</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-color:#181818; color:#98d2ff">
+
+    <!-- Renders the nav bar as a partial -->
+    <div class="nav"> 
+      <%= render 'shared/nav'%>
+    </div>
+
+    <!-- Added for Devise not sure what it does -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    
   </body>
 </html>
