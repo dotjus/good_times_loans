@@ -8,7 +8,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :timeoutable
 
 def assign_default_role
-	self.add_role(:client)
+  self.add_role(:client)
+  self.add_role(:lender)
+  self.add_role(:borrower)
 end
   
 end

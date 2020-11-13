@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -14,6 +15,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    check_signed_in
     @item = Item.new
   end
 
@@ -24,6 +26,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+
     @item = Item.new(item_params)
 
     respond_to do |format|
@@ -72,6 +75,10 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:name, :description, :cost, :image)
     end
 
-
-
+    def check_signed_in
+      if !(user_signed_in?)
+        flash[:alert] = "Please login to create your own listing."
+        redirect_to new_user_session_path
+      end
+    end
 end
